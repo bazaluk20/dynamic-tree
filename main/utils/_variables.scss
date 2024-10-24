@@ -1,0 +1,33 @@
+$colors: (
+  "color-white": #fff,
+  "color-black": #000,
+  "color-light": #f3f3f3,
+  "color-dark": #272528,
+  "color-gray": #ccc,
+  "color-blue": #1468ad,
+  "color-red": #ab0300,
+  "color-green": #007939,
+);
+
+@function HexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+@function coloring($name, $opacity: false) {
+  @if $opacity {
+    @return rgba(var(--#{unquote($name)}--rgb), $opacity);
+  } @else {
+    @return var(--#{unquote($name)});
+  }
+}
+:root {
+  @if $colors {
+    @each $key, $value in $colors {
+      --#{$key}: #{$value};
+      --#{$key}--rgb: #{HexToRGB($value)};
+    }
+  }
+}
+
+$bp-mobile: 480px;
+$bp-tablet: 768px;
+$bp-desctop: 1140px;

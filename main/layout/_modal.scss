@@ -1,0 +1,69 @@
+/* Основные стили для модального окна */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: coloring(color-gray, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  &__wrapper {
+    background-color: coloring(color-white);
+    padding: 0px;
+    border-radius: 4px;
+    width: 300px;
+    text-align: center;
+  }
+
+  &__content {
+    padding: 20px;
+    border-bottom: 1px solid coloring(color-gray);
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__input {
+    border: 1px solid coloring(color-gray);
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  &__wrapper-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__btn {
+    background-color: coloring(color-light);
+    border: 1px solid coloring(color-gray);
+    padding: 10px;
+    border-radius: 4px;
+    transition: border-color 0.25s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: coloring(color-blue);
+    }
+  }
+
+  &--confirmation {
+    display: none;
+  }
+}

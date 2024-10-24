@@ -1,0 +1,100 @@
+.tree {
+  padding: 48px;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__create {
+    background-color: coloring(color-light);
+    border: 1px solid coloring(color-gray);
+    padding: 16px 24px;
+    border-radius: 4px;
+    transition: border-color 0.25s;
+    margin-bottom: 16px;
+
+    &:hover {
+      border-color: coloring(color-blue);
+    }
+  }
+}
+
+.branch {
+  display: block;
+  position: relative;
+  padding-left: 24px;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: coloring(color-gray);
+    left: -24px;
+  }
+
+  &::before {
+    width: 1px;
+    height: 100%;
+    top: -16px;
+  }
+
+  &::after {
+    width: 24px;
+    height: 1px;
+    top: 16px;
+  }
+
+  &:first-child {
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+  &:last-child {
+    &::before {
+      height: 32px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  &__name {
+    margin: 0;
+    line-height: 2;
+  }
+
+  &__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: coloring(color-light);
+    border: 1px solid coloring(color-gray);
+    background-size: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 10px;
+    border-radius: 4px;
+    transition: border-color 0.25s;
+
+    &--add {
+      background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 9H9V15H7V9H1V7H7V1H9V7H15V9Z" fill="%23272528"/></svg>');
+
+      &:hover {
+        border-color: coloring(color-blue);
+      }
+    }
+    &--remove {
+      background-image: url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 9H9H7H1V7H7H9H15V9Z" fill="%23272528"/></svg>');
+
+      &:hover {
+        border-color: coloring(color-red);
+      }
+    }
+  }
+}
